@@ -1,0 +1,192 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffe4d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.universe {
+    width: 40vw;
+    aspect-ratio: 1;
+    background-color: #ffbb5c;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    animation: skychange 10s ease infinite;
+}
+
+@keyframes skychange{
+    0%{
+        background-color: #ffbb5cb5;
+    }
+    25%{
+        background-color: #fcbf49;
+    }
+    50%{
+        background-color: #000000;
+    }
+    75%{
+        background-color: #fcbf49;
+    }
+    100%{
+        background-color: #ffbb5cb5;
+    }
+}
+
+.sun {
+    width: 18vw;
+    aspect-ratio: 1;
+    background-color: #e25e3e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.sun::after {
+    content: "";
+    width:17vw;
+    aspect-ratio: 1;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius:inherit;
+    animation: moonwalk ease-in-out infinite;
+}
+@keyframes moonwalk{
+    0%{
+        translate: 100%;
+        scale: 1;
+    }
+    50%{
+        translate:0%;
+        scale: 0.9;
+    }
+    100%{
+        translate: -100%;
+        scale:0.9 ;
+    }
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffe4d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.universe {
+    width: 40vw;
+    aspect-ratio: 1;
+    background-color: #ffbb5c;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    animation: skychange 10s ease infinite;
+}
+
+@keyframes skychange {
+    0% {
+        background-color: #ffbb5cb5;
+    }
+
+    25% {
+        background-color: #fcbf49;
+    }
+
+    50% {
+        background-color: #000000;
+    }
+
+    75% {
+        background-color: #fcbf49;
+    }
+
+    100% {
+        background-color: #ffbb5cb5;
+    }
+}
+
+.sun {
+    width: 18vw;
+    aspect-ratio: 1;
+    background-color: #e25e3e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sun::after {
+    content: "";
+    width: 17vw;
+    aspect-ratio: 1;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: inherit;
+    opacity: 0;
+    /* Start invisible */
+    animation: moonwalk 4s ease-in-out infinite;
+    /* Animation for the moon */
+}
+
+@keyframes moonwalk {
+    0% {
+        transform: translate(100%, -50%);
+        /* Start from the right */
+        opacity: 0;
+        /* Fully invisible */
+    }
+
+    30% {
+        transform: translate(0, -50%);
+        /* Move to the center */
+        opacity: 0;
+        /* Still invisible while approaching */
+    }
+
+    40% {
+        opacity: 1;
+        /* Fade in at the center */
+    }
+
+    70% {
+        opacity: 1;
+        /* Stay fully visible */
+    }
+
+    100% {
+        transform: translate(-100%, -50%);
+        /* Move to the left */
+        opacity: 0;
+        /* Fade out as it leaves */
+    }
+}
